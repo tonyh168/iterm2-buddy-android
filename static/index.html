@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="theme-color" content="#101014">
+<title>iTerm2 Mirror</title>
+<link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="app">
+
+  <header id="top">
+    <div id="bar">
+      <span id="dot" class="dot off"></span>
+      <span id="stat">连接中…</span>
+      <span class="spacer"></span>
+      <button id="follow" class="chip on" title="自动跟随光标">跟随</button>
+      <button id="fit" class="chip" title="缩到整屏宽，只看版式">全览</button>
+      <button id="home" class="chip" title="回到行首">行首</button>
+      <button id="size" class="chip" title="切换字号">A</button>
+    </div>
+    <div id="tabs" role="tablist"></div>
+  </header>
+
+  <main id="termwrap">
+    <canvas id="term"></canvas>
+    <div id="empty">正在读取 iTerm2 的 pane…</div>
+  </main>
+
+  <div id="minimap" class="hide">
+    <canvas id="mini"></canvas>
+  </div>
+
+  <div id="keys"></div>
+
+  <footer id="inputbar">
+    <textarea id="ime" rows="1" autocomplete="off" autocorrect="off"
+      autocapitalize="off" spellcheck="false" placeholder="在此输入，直接送到终端"></textarea>
+    <button id="send">发送</button>
+  </footer>
+
+  <div id="toast"></div>
+
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
