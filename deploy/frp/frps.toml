@@ -1,0 +1,24 @@
+# frp 服务端配置（跑在你的云服务器上）
+# 放到 /etc/frp/frps.toml
+
+bindPort = 7000
+
+# 认证：必须改成一个足够长的随机串，和客户端一致
+# 生成方法：openssl rand -hex 24
+auth.method = "token"
+auth.token = "请替换成你的随机令牌"
+
+# 强制隧道加密（Mac <-> 服务器 这一段）
+# 不做这个，用户名密码和终端内容在公网上是明文
+transport.tls.force = true
+
+# Web 管理面板（可选，看连接状态用）
+webServer.addr = "127.0.0.1"
+webServer.port = 7500
+webServer.user = "admin"
+webServer.password = "请替换"
+
+# 日志
+log.to = "/var/log/frps.log"
+log.level = "info"
+log.maxDays = 7

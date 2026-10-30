@@ -1,0 +1,26 @@
+# frp 客户端配置（跑在你的 Mac 上）
+# 放到 ~/.frp/frpc.toml
+
+serverAddr = "请替换成服务器公网IP"
+serverPort = 7000
+
+auth.method = "token"
+auth.token = "和 frps.toml 里一致的令牌"
+
+# 隧道加密，与服务端 transport.tls.force 配套
+transport.tls.enable = true
+
+# 断线自动重连（网络切换、休眠唤醒后会自动恢复）
+transport.heartbeatInterval = 20
+transport.heartbeatTimeout = 90
+
+log.to = "/tmp/frpc.log"
+log.level = "info"
+log.maxDays = 3
+
+[[proxies]]
+name = "iterm-mirror"
+type = "tcp"
+localIP = "127.0.0.1"
+localPort = 7861
+remotePort = 8080
